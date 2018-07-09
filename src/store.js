@@ -4,7 +4,9 @@ import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
 
-export const history = createHistory()
+export const history = createHistory({
+  basename: '/lingurita/',
+})
 
 const initialState = {}
 const enhancers = []
