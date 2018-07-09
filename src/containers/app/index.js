@@ -1,13 +1,18 @@
 import React from 'react'
 import { Route, Link } from 'react-router-dom'
+import { slide as Menu } from 'react-burger-menu'
 import Home from '../home'
 import About from '../about'
+
+import './style.css'
 
 const App = () => (
   <div>
     <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+      <Menu>
+        <Link to="/">Home</Link>
+        <Link to="/about-us">About</Link>
+      </Menu>
     </header>
 
     <main>

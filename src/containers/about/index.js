@@ -1,10 +1,32 @@
 import React from 'react'
+import { push } from 'connected-react-router'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-const About = () => (
+const About = props => (
   <div>
     <h1>About Page</h1>
     <p>Did you get here via Redux?</p>
+    <p>
+      <button onClick={() => props.changePage()}>
+        go home
+      </button>
+    </p>
   </div>
 )
 
-export default About
+const mapStateToProps = () => ({
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      changePage: () => push('/')
+    },
+    dispatch
+  )
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(About)
