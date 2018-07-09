@@ -1,8 +1,9 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import Home from '../home'
 import About from '../about'
+import NoMatch from '../no-match'
 
 import './style.css'
 
@@ -16,8 +17,11 @@ const App = () => (
     </header>
 
     <main>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about-us" component={About} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about-us" component={About} />
+        <Route component={NoMatch}/>
+      </Switch>
     </main>
   </div>
 )

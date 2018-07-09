@@ -5,7 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 import rootReducer from './modules'
 
 export const history = createHistory({
-  basename: '/lingurita/',
+  basename: process.env.NODE_ENV === "production" ? '/lingurita/' : '/',
 })
 
 const initialState = {}
