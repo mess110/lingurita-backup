@@ -3,6 +3,7 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Search from '../../components/search'
 import {
   increment,
   incrementAsync,
@@ -14,6 +15,8 @@ const Home = props => (
   <div>
     <h1>Home</h1>
     <p>Count: {props.count}</p>
+
+    <Search />
 
     <p>
       <button onClick={props.increment}>Increment</button>
