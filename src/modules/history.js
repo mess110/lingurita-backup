@@ -1,6 +1,6 @@
-export const LOAD = 'history/LOAD'
+import { LOCAL_STORAGE_HISTORY_KEY } from '../middleware/recordItemHistory'
 
-const LOCAL_STORAGE_HISTORY_KEY = 'linguritaHistory'
+export const LOAD = 'history/LOAD'
 
 const initialState = {
   items: []
@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
 
 export const loadHistory = (code) => {
   return dispatch => {
-    var items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_HISTORY_KEY) || '[]')
+    var items = JSON.parse(localStorage.getItem(LOCAL_STORAGE_HISTORY_KEY) || '[]').reverse()
     dispatch({
       type: LOAD,
       items: items

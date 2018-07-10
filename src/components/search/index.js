@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import Scan from '../../components/scan'
 import { qChange } from '../../modules/search'
-import { loadItem } from '../../modules/item'
+import { loadItem, loadItems } from '../../modules/item'
 
 const Search = (props) => (
   <div>
@@ -23,11 +23,14 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       qChange,
+      loadItem,
+      loadItems,
       openItem: (props) => {
         if (isNaN(props.q)) {
+          props.loadItems(props.q);
           return push('/browse')
         } else {
-          loadItem(props.q);
+          props.loadItem(props.q);
           return push('/items/' + props.q)
         }
       },

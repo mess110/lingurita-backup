@@ -15,8 +15,16 @@ class Item extends React.Component {
   render() {
     return (
       <div>
-        <p>{ this.props.match.params.code }</p>
-        <p>{ this.props.item.name }</p>
+        <table>
+          <tbody>
+          { Object.keys(this.props.item).map((key) =>
+            <tr>
+              <td style={ { minWidth: 200 } }>{ key }</td>
+              <td>{ this.props.item[key] }</td>
+            </tr>
+          ) }
+          </tbody>
+        </table>
       </div>
     )
   }

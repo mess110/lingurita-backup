@@ -1,9 +1,9 @@
-import { LOAD } from '../modules/item'
+import { LOAD_ITEM } from '../modules/item'
 
-const LOCAL_STORAGE_HISTORY_KEY = 'linguritaHistory'
+export const LOCAL_STORAGE_HISTORY_KEY = 'linguritaHistory'
 
 const recordItemHistory = (store) => (next) => (action) => {
-  if (action.type === LOAD) {
+  if (action.type === LOAD_ITEM) {
     var hist = JSON.parse(localStorage.getItem(LOCAL_STORAGE_HISTORY_KEY) || '[]')
     hist.push({
       code: action.item.code,
