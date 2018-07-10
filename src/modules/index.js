@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
-
-import counter from './counter'
-import search from './search'
 import { reducer as burgerMenu } from 'redux-burger-menu'
 
+import counter from './counter'
+import item from './item'
+import search from './search'
+
 export default combineReducers({
-  search,
-  counter,
   burgerMenu,
+  counter,
+  item,
+  search,
 })

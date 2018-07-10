@@ -2,13 +2,10 @@ import React from 'react'
 import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import Scan from '../../components/scan'
-import {
-  qChange,
-  selectItem
-} from '../../modules/search'
+import { qChange } from '../../modules/search'
+import { selectItem } from '../../modules/item'
 
 const Search = (props) => (
   <div>
@@ -25,13 +22,11 @@ const mapStateToProps = ({ search }) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      selectItem,
       qChange,
       openItem: (props) => {
-        props.selectItem(props.q);
+        selectItem(props.q);
         return push('/items/' + props.q)
       },
-      changePage: () => push('/')
     },
     dispatch
   )

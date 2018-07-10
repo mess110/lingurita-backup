@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import {
   selectItem
-} from '../../modules/search'
+} from '../../modules/item'
 
 class Item extends React.Component {
   componentDidMount() {
@@ -24,10 +24,10 @@ class Item extends React.Component {
   }
 }
 
-const mapStateToProps = ({ search }) => ({
-  item: search.item,
-  loaded: search.loaded,
-  loading: search.loading,
+const mapStateToProps = ({ item }) => ({
+  item: item.item,
+  loaded: item.loaded,
+  loading: item.loading,
 })
 
 const mapDispatchToProps = dispatch =>
