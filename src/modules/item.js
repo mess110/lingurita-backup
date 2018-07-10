@@ -13,12 +13,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         item: action.item,
-        loaded: true
+        loaded: true,
+        loading: false
       }
 
     case LOADING:
       return {
         ...state,
+        loaded: false,
         loading: true
       }
 

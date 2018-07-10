@@ -6,7 +6,6 @@ import Search from '../../components/search'
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
     <Search />
   </div>
 )

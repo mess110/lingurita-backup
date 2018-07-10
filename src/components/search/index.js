@@ -10,7 +10,7 @@ import { loadItem } from '../../modules/item'
 const Search = (props) => (
   <div>
     <input type="text" value={props.q} onChange={props.qChange}/>
-    <button onClick={() => props.openItem(props)}>open</button>
+    <button onClick={() => props.openItem(props)} disabled={!props.q}>open</button>
     <Scan />
   </div>
 )
@@ -24,8 +24,12 @@ const mapDispatchToProps = dispatch =>
     {
       qChange,
       openItem: (props) => {
-        loadItem(props.q);
-        return push('/items/' + props.q)
+        if (isNaN(props.q)) {
+          return push('/browse')
+        } else {
+          loadItem(props.q);
+          return push('/items/' + props.q)
+        }
       },
     },
     dispatch

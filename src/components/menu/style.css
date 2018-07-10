@@ -9,7 +9,8 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+  /* background: #373a47; */
+  background: white;
 }
 
 /* Position and sizing of clickable cross button */
@@ -44,6 +45,12 @@
 /* Individual item */
 .bm-item {
   display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.15em;
+  font-weight: bold;
+  margin: 25px;
+  text-align: center;
 }
 
 /* Styling of overlay */
@@ -53,5 +60,17 @@
 
 main {
   padding: 25px;
-  padding-top: 50px;
+}
+
+.top-bar {
+  background-color: #373a47;
+  min-height: 102px;
+}
+
+.top-bar-faker {
+  position: fixed;
+  top: 0px;
+  background-color: #373a47;
+  min-height: 102px;
+  width: 100%;
 }

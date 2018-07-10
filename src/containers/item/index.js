@@ -15,7 +15,7 @@ class Item extends React.Component {
   render() {
     return (
       <div>
-        <h1>{ this.props.match.params.code }</h1>
+        <p>{ this.props.match.params.code }</p>
         <p>{ this.props.item.name }</p>
       </div>
     )

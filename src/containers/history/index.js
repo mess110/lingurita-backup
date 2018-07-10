@@ -12,7 +12,6 @@ class History extends React.Component {
   render() {
     return (
       <div>
-        <h1>History</h1>
         { this.props.items.map((item) =>
           <div key={item.timestamp}>
             <p>{ item.code }</p>

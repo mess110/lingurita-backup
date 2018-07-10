@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 const About = props => (
   <div>
-    <h1>About Page</h1>
     <p>Did you get here via Redux?</p>
     <p>
       <button onClick={() => props.changePage()}>
