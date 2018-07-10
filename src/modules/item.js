@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         ...state,
         item: action.item,
         loaded: true,
-        loading: false
+        loading: false,
       }
 
     case LOAD_ITEMS:
@@ -24,14 +24,14 @@ export default (state = initialState, action) => {
         ...state,
         items: action.items,
         loaded: true,
-        loading: false
+        loading: false,
       }
 
     case LOADING:
       return {
         ...state,
         loaded: false,
-        loading: true
+        loading: true,
       }
 
     default:

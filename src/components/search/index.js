@@ -15,11 +15,21 @@ const Search = (props) => (
       <img src={search} alt="search" style={{ width: 16 }}/>
     </button>
     <Scan />
+    { props.loading &&
+      <div>loading</div>
+    }
+    { props.items.length === 0 && props.loaded &&
+      <div>no results found</div>
+    }
   </div>
 )
 
-const mapStateToProps = ({ search }) => ({
+const mapStateToProps = ({ search, item }) => ({
   q: search.q,
+  item: item.item,
+  items: item.items,
+  loaded: item.loaded,
+  loading: item.loading,
 })
 
 const mapDispatchToProps = dispatch =>

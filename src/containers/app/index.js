@@ -5,7 +5,6 @@ import { action as toggleMenu } from 'redux-burger-menu';
 import About from '../about'
 import Browse from '../browse'
 import History from '../history'
-import Home from '../home'
 import Item from '../item'
 import Menu from '../../components/menu'
 import NoMatch from '../no-match'
@@ -26,8 +25,7 @@ class App extends React.Component {
         <div id="outer-container">
           <header>
             <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
-              <Link onClick={ () => this.closeMenu() } to="/">Home</Link>
-              <Link onClick={ () => this.closeMenu() } to="/browse">Browse</Link>
+              <Link onClick={ () => this.closeMenu() } to="/">Browse</Link>
               <Link onClick={ () => this.closeMenu() } to="/history">History</Link>
               <Link onClick={ () => this.closeMenu() } to="/settings">Settings</Link>
               <Link onClick={ () => this.closeMenu() } to="/about-us">About</Link>
@@ -36,10 +34,9 @@ class App extends React.Component {
 
           <main id="page-wrap">
             <Switch>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Browse} />
               <Route exact path="/about-us" component={About} />
               <Route exact path="/history" component={History} />
-              <Route exact path="/browse" component={Browse} />
               <Route exact path="/settings" component={Settings} />
               <Route path="/items/:code" component={Item} />
               <Route component={NoMatch}/>

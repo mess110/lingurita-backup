@@ -6,27 +6,19 @@ import { connect } from 'react-redux'
 import { qChange } from '../../modules/search'
 import { loadItems, loadItem } from '../../modules/item'
 import search from '../../icons/search.svg';
+import Search from '../../components/search'
 
 class Browse extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.props.q} onChange={this.props.qChange}/>
-        <button onClick={() => this.props.loadItems(this.props.q)} disabled={!this.props.q}>
-          <img src={search} alt="search" style={{ width: 16 }}/>
-        </button>
-        { this.props.loading &&
-          <div>loading</div>
-        }
+        <Search />
         { this.props.items.map((item) =>
           <div key={ item.code + item.name } onClick={() => this.props.openItem(this.props, item.code)}>
             <p>{ item.name }</p>
             <hr />
           </div>
         ) }
-        { this.props.items.length === 0 && this.props.loaded &&
-          <div>no results found</div>
-        }
       </div>
     )
   }
