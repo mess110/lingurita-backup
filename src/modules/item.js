@@ -1,4 +1,4 @@
-export const SELECT = 'item/SELECT'
+export const LOAD = 'item/LOAD'
 export const LOADING = 'item/LOADING'
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SELECT:
+    case LOAD:
       return {
         ...state,
         item: action.item,
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
   }
 }
 
-export const selectItem = (code) => {
+export const loadItem = (code) => {
   return dispatch => {
     dispatch({
       type: LOADING,
@@ -35,7 +35,7 @@ export const selectItem = (code) => {
     var url = 'https://json.northpole.ro/write_only_storage.json?api_key=lingurita&secret=81cc6b0c14e5c4fa11f51f3bad1123f7&lingurita_type=item&code=' + code
     fetch(url).then((response) => response.json()).then(function(myJson) {
       dispatch({
-        type: SELECT,
+        type: LOAD,
         item: myJson[0] || {},
       })
     })

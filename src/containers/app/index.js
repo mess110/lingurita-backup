@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import { action as toggleMenu } from 'redux-burger-menu';
 
 import Home from '../home'
+import History from '../history'
 import Item from '../item'
 import About from '../about'
 import NoMatch from '../no-match'
@@ -15,6 +16,7 @@ const App = (props) => (
     <header>
       <Menu>
         <Link onClick={ () => { props.store.dispatch(toggleMenu(false)) } } to="/">Home</Link>
+        <Link onClick={ () => { props.store.dispatch(toggleMenu(false)) } } to="/history">History</Link>
         <Link onClick={ () => { props.store.dispatch(toggleMenu(false)) } } to="/about-us">About</Link>
       </Menu>
     </header>
@@ -23,6 +25,7 @@ const App = (props) => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={About} />
+        <Route exact path="/history" component={History} />
         <Route path="/items/:code" component={Item} />
         <Route component={NoMatch}/>
       </Switch>

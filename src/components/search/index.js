@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import Scan from '../../components/scan'
 import { qChange } from '../../modules/search'
-import { selectItem } from '../../modules/item'
+import { loadItem } from '../../modules/item'
 
 const Search = (props) => (
   <div>
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch =>
     {
       qChange,
       openItem: (props) => {
-        selectItem(props.q);
+        loadItem(props.q);
         return push('/items/' + props.q)
       },
     },

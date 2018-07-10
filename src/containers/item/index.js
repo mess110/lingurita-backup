@@ -4,13 +4,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import {
-  selectItem
+  loadItem
 } from '../../modules/item'
 
 class Item extends React.Component {
   componentDidMount() {
     if (!(this.props.loaded || this.props.loading)) {
-      this.props.selectItem(this.props.match.params.code);
+      this.props.loadItem(this.props.match.params.code);
     }
   }
 
@@ -33,7 +33,7 @@ const mapStateToProps = ({ item }) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      selectItem,
+      loadItem,
       changePage: () => push('/')
     },
     dispatch
