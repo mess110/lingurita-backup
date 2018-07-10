@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import { action as toggleMenu } from 'redux-burger-menu';
 
 import Home from '../home'
+import Item from '../item'
 import About from '../about'
 import NoMatch from '../no-match'
 import Menu from '../../components/menu'
@@ -22,6 +23,7 @@ const App = (props) => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={About} />
+        <Route path="/items/:code" component={Item} />
         <Route component={NoMatch}/>
       </Switch>
     </main>

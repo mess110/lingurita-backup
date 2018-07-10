@@ -3,21 +3,9 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Search from '../../components/search'
-import Scan from '../../components/scan'
-
-const Home = props => (
+const Item = props => (
   <div>
-    <h1>Home</h1>
-
-    <Search />
-    <Scan />
-
-    <p>
-      <button onClick={() => props.changePage()}>
-        Go to about page via redux
-      </button>
-    </p>
+    <h1>{ props.match.params.code }</h1>
   </div>
 )
 
@@ -27,7 +15,7 @@ const mapStateToProps = () => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      changePage: () => push('/about-us'),
+      changePage: () => push('/')
     },
     dispatch
   )
@@ -35,4 +23,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Item)
