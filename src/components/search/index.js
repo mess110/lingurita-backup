@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import Scan from '../../components/scan'
 import {
   qChange,
   selectItem
@@ -12,16 +13,13 @@ import {
 const Search = (props) => (
   <div>
     <input type="text" value={props.q} onChange={props.qChange}/>
-    <Link to={ "/items/" + props.q }>open</Link>
-    <button onClick={() => props.selectItem(props.q)}>open</button>
     <button onClick={() => props.openItem(props)}>open</button>
-    { props.item.name }
+    <Scan />
   </div>
 )
 
 const mapStateToProps = ({ search }) => ({
   q: search.q,
-  item: search.item
 })
 
 const mapDispatchToProps = dispatch =>

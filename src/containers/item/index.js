@@ -18,18 +18,14 @@ class Item extends React.Component {
     return (
       <div>
         <h1>{ this.props.match.params.code }</h1>
-        <p>{ this.props.found ? 'found' : 'not found' }</p>
         <p>{ this.props.item.name }</p>
-        <p>{ this.props.q }</p>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ item, search }) => ({
-  found: item.found,
+const mapStateToProps = ({ search }) => ({
   item: search.item,
-  q: search.q,
   loaded: search.loaded,
   loading: search.loading,
 })
