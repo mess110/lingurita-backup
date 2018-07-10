@@ -3,9 +3,7 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import {
-  loadItem
-} from '../../modules/item'
+import { loadItem } from '../../modules/item'
 
 class Item extends React.Component {
   componentDidMount() {
