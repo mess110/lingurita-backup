@@ -6,11 +6,14 @@ import { connect } from 'react-redux'
 import Scan from '../../components/scan'
 import { qChange } from '../../modules/search'
 import { loadItem, loadItems } from '../../modules/item'
+import search from '../../icons/search.svg';
 
 const Search = (props) => (
   <div>
     <input type="text" value={props.q} onChange={props.qChange}/>
-    <button onClick={() => props.openItem(props)} disabled={!props.q}>open</button>
+    <button onClick={() => props.openItem(props)} disabled={!props.q}>
+      <img src={search} alt="search" style={{ width: 16 }}/>
+    </button>
     <Scan />
   </div>
 )

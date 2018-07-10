@@ -1,38 +1,40 @@
 import React from 'react'
+import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { loadHistory } from '../../modules/history'
-
 class History extends React.Component {
-  componentDidMount() {
-    this.props.loadHistory()
-  }
-
   render() {
     return (
       <div>
-        { this.props.items.map((item) =>
-          <div key={item.timestamp}>
+        { this.props.history.map((item) =>
+          <div key={item.timestamp} onClick={() => this.props.changePage(item.code)}>
             <p>{ item.code }</p>
             <p>{ item.name }</p>
             <p>{ item.timestamp }</p>
             <hr />
           </div>
         ) }
+        { this.props.history.length === 0 && this.props.recordHistory &&
+          <div>no history</div>
+        }
+        { !this.props.recordHistory &&
+          <div>not recording history</div>
+        }
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ history }) => ({
-  items: history.items,
+const mapStateToProps = ({ search, settings }) => ({
+  history: search.history,
+  recordHistory: settings.recordHistory
 })
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      loadHistory
+      changePage: (code) => push('/items/' + code)
     },
     dispatch
   )

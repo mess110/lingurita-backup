@@ -3,6 +3,7 @@ export const Q_CHANGE = 'search/Q_CHANGE'
 const initialState = {
   // q: '5941442006654',
   q: '',
+  history: []
 }
 
 export default (state = initialState, action) => {

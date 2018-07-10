@@ -18,7 +18,7 @@ class Item extends React.Component {
         <table>
           <tbody>
           { Object.keys(this.props.item).map((key) =>
-            <tr>
+            <tr key={key}>
               <td style={ { minWidth: 200 } }>{ key }</td>
               <td>{ this.props.item[key] }</td>
             </tr>

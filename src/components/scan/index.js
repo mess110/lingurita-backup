@@ -1,4 +1,5 @@
 import React from 'react'
+import camera from '../../icons/camera.svg';
 
 const getScanLink = () => {
   if (process.env.NODE_ENV === 'development') {
@@ -9,7 +10,7 @@ const getScanLink = () => {
 }
 
 const Scan = () => (
-  <a href={ getScanLink() }><img src="camera.svg" alt="scan" /></a>
+  <a href={ getScanLink() }><img src={camera} alt="scan" style={{ width: 16 }}/></a>
 )
 
 export default Scan
