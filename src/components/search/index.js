@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Scan from '../../components/scan'
-import { qChange } from '../../modules/search'
+import { qChange, qReset, lastQChange } from '../../modules/search'
 import { loadItem, loadItems } from '../../modules/item'
 import search from '../../icons/search.svg';
 
@@ -26,6 +26,7 @@ const Search = (props) => (
 
 const mapStateToProps = ({ search, item }) => ({
   q: search.q,
+  lastQ: search.lastQ,
   item: item.item,
   items: item.items,
   loaded: item.loaded,
@@ -36,15 +37,20 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       qChange,
+      qReset,
+      lastQChange,
       loadItem,
       loadItems,
       openItem: (props) => {
         if (isNaN(props.q)) {
-          props.loadItems(props.q);
-          return push('/browse')
+          props.loadItems(props.q)
+          props.lastQChange({target: { value: props.q }})
+          return push('/')
         } else {
-          props.loadItem(props.q);
-          return push('/items/' + props.q)
+          props.loadItem(props.q)
+          var pushUrl = '/items/' + props.q
+          props.qChange({ target: { value: props.lastQ } })
+          return push(pushUrl)
         }
       },
     },

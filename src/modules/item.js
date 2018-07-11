@@ -48,7 +48,7 @@ export const loadItem = (code) => {
     fetch(url).then((response) => response.json()).then(function(myJson) {
       dispatch({
         type: LOAD_ITEM,
-        item: myJson[0] || {},
+        item: myJson[0] || { code: code },
       })
     })
   }

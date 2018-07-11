@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 import { qChange } from '../../modules/search'
 import { loadItems, loadItem } from '../../modules/item'
-import search from '../../icons/search.svg';
 import Search from '../../components/search'
 
 class Browse extends React.Component {
@@ -38,7 +37,7 @@ const mapDispatchToProps = dispatch =>
       loadItem,
       loadItems,
       openItem: (props, code) => {
-        props.loadItem(code);
+        props.loadItem(code)
         return push('/items/' + code)
       }
     },
