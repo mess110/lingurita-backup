@@ -59,7 +59,7 @@ export const loadItems = (name) => {
     dispatch({
       type: LOADING,
     })
-    var url = 'https://json.northpole.ro/write_only_storage.json?api_key=lingurita&secret=81cc6b0c14e5c4fa11f51f3bad1123f7&lingurita_type=item&__regexi=name&name=' + name
+    var url = 'https://json.northpole.ro/write_only_storage.json?api_key=lingurita&secret=81cc6b0c14e5c4fa11f51f3bad1123f7&lingurita_type=item&__limit=50&__regexi=name&name=' + name
     fetch(url).then((response) => response.json()).then(function(myJson) {
       dispatch({
         type: LOAD_ITEMS,
