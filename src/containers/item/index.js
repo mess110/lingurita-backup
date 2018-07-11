@@ -21,6 +21,10 @@ class Item extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    window.scrollTo(0, 0)
+  }
+
   computeLingurite(item) {
     if (item === {} || item === undefined || item === null) {
       return 'N\\A'
@@ -109,7 +113,7 @@ class Item extends React.Component {
               { Object.keys(this.props.item).map((key) =>
                 <tr key={key}>
                   <td style={ { minWidth: 200 } }>{ key }</td>
-                  <td>{ this.props.item[key] }</td>
+                  <td>{ this.props.item[key] || '-' }</td>
                 </tr>
               ) }
               </tbody>
