@@ -8,19 +8,13 @@ import { qChange, qReset, lastQChange } from '../../modules/search'
 import { loadItem, loadItems } from '../../modules/item'
 import search from '../../icons/search.svg';
 
+import './style.css'
+
 const Search = (props) => (
-  <div>
-    <input type="text" value={props.q} onChange={props.qChange} onKeyPress={event => { if (event.key === 'Enter' && props.q) { props.openItem(props) } }}/>
-    <button onClick={() => props.openItem(props)} disabled={!props.q}>
-      <img src={search} alt="search" style={{ width: 16 }}/>
-    </button>
+  <div className="search-bar">
+    <input type="text" value={props.q} onChange={props.qChange} onKeyPress={event => { if (event.key === 'Enter' && props.q) { props.openItem(props) } }} spellcheck="false" placeholder="code or name"/>
+    <img src={search} alt="search" style={{ width: 16, margin: 10 }} onClick={() => props.openItem(props)} disabled={!props.q}/>
     <Scan />
-    { props.loading &&
-      <div>loading</div>
-    }
-    { props.items.length === 0 && props.loaded &&
-      <div>no results found</div>
-    }
   </div>
 )
 
@@ -42,6 +36,10 @@ const mapDispatchToProps = dispatch =>
       loadItem,
       loadItems,
       openItem: (props) => {
+        if (!props.q) {
+          return push('/')
+        }
+
         if (isNaN(props.q)) {
           props.loadItems(props.q)
           props.lastQChange({target: { value: props.q }})

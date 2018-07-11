@@ -8,6 +8,7 @@ import History from '../history'
 import Item from '../item'
 import Menu from '../../components/menu'
 import NoMatch from '../no-match'
+import Search from '../../components/search'
 import Settings from '../settings'
 
 import './style.css'
@@ -21,7 +22,9 @@ class App extends React.Component {
     return (
       <div>
         <div className="top-bar"></div>
-        <div className="top-bar-faker" onClick={ () => this.closeMenu() }></div>
+        <div className="top-bar-faker" onClick={ () => this.closeMenu() }>
+          <Search />
+        </div>
         <div id="outer-container">
           <header>
             <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>

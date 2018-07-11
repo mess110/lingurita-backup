@@ -11,9 +11,8 @@ class Browse extends React.Component {
   render() {
     return (
       <div>
-        <Search />
         { this.props.items.map((item) =>
-          <div key={ item.code + item.name } onClick={() => this.props.openItem(this.props, item.code)}>
+          <div key={ item.id } onClick={() => this.props.openItem(this.props, item)}>
             <p>{ item.name }</p>
             <hr />
           </div>
@@ -36,9 +35,10 @@ const mapDispatchToProps = dispatch =>
       qChange,
       loadItem,
       loadItems,
-      openItem: (props, code) => {
-        props.loadItem(code)
-        return push('/items/' + code)
+      openItem: (props, item) => {
+        var key = item.code || item.id
+        props.loadItem(key, item.code ? false : true)
+        return push('/items/' + key)
       }
     },
     dispatch

@@ -1,0 +1,13 @@
+.search-bar {
+  text-align: right;
+  padding-top: 34px;
+  padding-right: 33px;
+}
+
+.search-bar input {
+  max-width: 50%;
+  border: none;
+  border-bottom: 2px solid white;
+  background: #373a47;
+  color: white;
+}
