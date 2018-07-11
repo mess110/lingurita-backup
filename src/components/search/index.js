@@ -10,7 +10,7 @@ import search from '../../icons/search.svg';
 
 const Search = (props) => (
   <div>
-    <input type="text" value={props.q} onChange={props.qChange}/>
+    <input type="text" value={props.q} onChange={props.qChange} onKeyPress={event => { if (event.key === 'Enter' && props.q) { props.openItem(props) } }}/>
     <button onClick={() => props.openItem(props)} disabled={!props.q}>
       <img src={search} alt="search" style={{ width: 16 }}/>
     </button>

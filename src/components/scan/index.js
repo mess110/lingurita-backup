@@ -10,7 +10,7 @@ const getScanLink = () => {
 }
 
 const Scan = () => (
-  <a href={ getScanLink() }><img src={camera} alt="scan" style={{ width: 16 }}/></a>
+  <a href={ getScanLink() }><img src={camera} alt="scan" style={{ width: 16, margin: 10 }}/></a>
 )
 
 export default Scan
