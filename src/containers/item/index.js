@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { loadItem } from '../../modules/item'
+import NotFoundAdd from '../../components/not-found-add'
 
 class Item extends React.Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ class Item extends React.Component {
       return 'N\\A'
     }
     item['sugar_grams'] = this.findSugarGrams(item)
-    return item['sugar_grams'] / this.props.teaSpoonGrams
+    return parseFloat(item['sugar_grams'] / this.props.teaSpoonGrams).toFixed(2) || '?'
   }
 
   findSugarGrams(item) {
@@ -76,6 +77,10 @@ class Item extends React.Component {
     }
   }
 
+  findEUri(item) {
+    return this.props.item.raw_nr_e_uri || '?'
+  }
+
   findWeight(item) {
     for (var key of ['raw_gramaj', 'raw_gramajg']) {
       if (item[key]) {
@@ -93,22 +98,32 @@ class Item extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <p>Nr. lingurite zahar: { this.computeLingurite(this.props.item) }</p>
-          <p>Nr. e-uri: { this.props.item.raw_nr_e_uri || 0 }</p>
-        </div>
-        <br />
-        <br />
-        <table>
-          <tbody>
-          { Object.keys(this.props.item).map((key) =>
-            <tr key={key}>
-              <td style={ { minWidth: 200 } }>{ key }</td>
-              <td>{ this.props.item[key] }</td>
-            </tr>
-          ) }
-          </tbody>
-        </table>
+        { !this.props.item.id && <NotFoundAdd /> }
+        { this.props.item.id && <div>
+          <div>
+            <div style={{width: '50%', float: 'left', textAlign: 'center', paddingBottom: '100px'}}>
+              <h1 style={{ marginBottom: '0px', fontSize: '3em' }}>{ this.computeLingurite(this.props.item) }</h1>
+              <p style={{ marginTop: '0px' }}>lingurite de zahar</p>
+            </div>
+            <div style={{width: '50%', float: 'left', textAlign: 'center', paddingBottom: '100px'}}>
+              <h1 style={{ marginBottom: '0px', fontSize: '3em' }}>{ this.findEUri(this.props.item) }</h1>
+              <p style={{ marginTop: '0px' }}>E-uri</p>
+            </div>
+          </div>
+          <div>
+            <h3>Detalii</h3>
+            <table>
+              <tbody>
+              { Object.keys(this.props.item).map((key) =>
+                <tr key={key}>
+                  <td style={ { minWidth: 200 } }>{ key }</td>
+                  <td>{ this.props.item[key] }</td>
+                </tr>
+              ) }
+              </tbody>
+            </table>
+          </div>
+        </div> }
       </div>
     )
   }
