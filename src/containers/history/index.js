@@ -30,7 +30,6 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       changePage: (code) => {
-        console.log('asd')
         return push('/items/' + code)
       }
     },
