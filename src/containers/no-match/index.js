@@ -1,11 +1,9 @@
 import React from 'react'
 
-const style = {
-  padding: 25
-}
+import Mascot from '../../components/mascot'
 
 const NoMatch = () => (
-  <p style={style}>404</p>
+  <Mascot value="404"/>
 )
 
 export default NoMatch
