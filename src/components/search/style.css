@@ -1,13 +1,24 @@
 .search-bar {
   text-align: right;
-  padding-top: 34px;
+  padding-top: 27px;
   padding-right: 33px;
 }
 
 .search-bar input {
-  max-width: 50%;
+  max-width: 40%;
   border: none;
   border-bottom: 2px solid white;
   background: #373a47;
   color: white;
+  font-weight: bold;
+}
+
+input[type=number] {
+  border: none;
+  border-bottom: 2px solid black;
+  margin: 5px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }

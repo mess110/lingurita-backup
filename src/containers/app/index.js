@@ -29,7 +29,7 @@ class App extends React.Component {
           <header>
             <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
               <Link onClick={ () => this.closeMenu() } to="/">Browse</Link>
-              <Link onClick={ () => this.closeMenu() } to="/history">History</Link>
+              { this.props.store.getState().settings.recordHistory  && <Link onClick={ () => this.closeMenu() } to="/history">History</Link> }
               <Link onClick={ () => this.closeMenu() } to="/settings">Settings</Link>
               <Link onClick={ () => this.closeMenu() } to="/about-us">About</Link>
             </Menu>

@@ -8,7 +8,7 @@ import { loadItem } from '../../modules/item'
 class Item extends React.Component {
   componentDidMount() {
     // oh wow. plz rewrite
-    if (this.props.loaded || this.props.loading) {
+    if (this.props.loaded) {
       if (this.props.match.params.code !== this.props.item.code) {
         this.props.loadItem(this.props.match.params.code);
       }
@@ -23,9 +23,7 @@ class Item extends React.Component {
     if (item === {} || item === undefined || item === null) {
       return 'N\\A'
     }
-
     item['sugar_grams'] = this.findSugarGrams(item)
-
     return item['sugar_grams'] / this.props.teaSpoonGrams
   }
 
@@ -35,9 +33,11 @@ class Item extends React.Component {
     if (item['raw_zaharuri']) {
       return Number(item['raw_zaharuri'].replace('g', '').replace(',', '.'))
     } else if (item['raw_zaharuri_din_glucide']) {
-      if (item['raw_zaharuri_din_glucide'].endsWith('g/100g')) {
-        weight = this.findWeight(item);
-        raw_zaharuri_per_100g = Number(item['raw_zaharuri_din_glucide'].replace('g/100g', '').replace(',', '.'))
+      var no_whitespace = item['raw_zaharuri_din_glucide'].replace(/\s/g, '')
+      if (no_whitespace.endsWith('g/100g')) {
+        weight = this.findWeight(item)
+        raw_zaharuri_per_100g = Number(no_whitespace.replace('g/100g', '').replace(',', '.'))
+        console.log(raw_zaharuri_per_100g)
         return (weight / 100) * raw_zaharuri_per_100g
       } else {
         return Number(item['raw_zaharuri_din_glucide'].replace('g', '').replace(',', '.'))
@@ -94,8 +94,10 @@ class Item extends React.Component {
     return (
       <div>
         <div>
-          Nr. lingurite zahar: { this.computeLingurite(this.props.item) }
+          <p>Nr. lingurite zahar: { this.computeLingurite(this.props.item) }</p>
+          <p>Nr. e-uri: { this.props.item.raw_nr_e_uri || 0 }</p>
         </div>
+        <br />
         <br />
         <table>
           <tbody>

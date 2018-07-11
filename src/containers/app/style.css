@@ -1,8 +1,11 @@
-/* app */
-
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
   outline: none;
+}
+
+.button-icon {
+  width: 30px;
+  margin: 10px;
 }

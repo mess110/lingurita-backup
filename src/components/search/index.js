@@ -12,8 +12,8 @@ import './style.css'
 
 const Search = (props) => (
   <div className="search-bar">
-    <input type="text" value={props.q} onChange={props.qChange} onKeyPress={event => { if (event.key === 'Enter' && props.q) { props.openItem(props) } }} spellcheck="false" placeholder="code or name"/>
-    <img src={search} alt="search" style={{ width: 16, margin: 10 }} onClick={() => props.openItem(props)} disabled={!props.q}/>
+    <input type="text" value={props.q} onChange={props.qChange} onKeyPress={event => { if (event.key === 'Enter' && props.q) { props.openItem(props) } }} spellCheck="false" placeholder="search"/>
+    <img className="button-icon" src={search} alt="search" onClick={() => props.openItem(props)} disabled={!props.q}/>
     <Scan />
   </div>
 )

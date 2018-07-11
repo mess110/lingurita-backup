@@ -5,18 +5,20 @@ import { connect } from 'react-redux'
 
 import { qChange } from '../../modules/search'
 import { loadItems, loadItem } from '../../modules/item'
-import Search from '../../components/search'
+import ItemRow from '../../components/item-row'
+import Mascot from '../../components/mascot'
+
 
 class Browse extends React.Component {
   render() {
     return (
       <div>
         { this.props.items.map((item) =>
-          <div key={ item.id } onClick={() => this.props.openItem(this.props, item)}>
-            <p>{ item.name }</p>
-            <hr />
-          </div>
+          <ItemRow item={item} key={item.id} onClick={() => this.props.openItem(this.props, item)} />
         ) }
+        { !this.props.loaded &&
+            <Mascot value="YFW you find out how much sugar you eat"/>
+        }
       </div>
     )
   }

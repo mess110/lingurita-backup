@@ -3,23 +3,18 @@ import { push } from 'connected-react-router'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import ItemRow from '../../components/item-row'
+import Mascot from '../../components/mascot'
+
 class History extends React.Component {
   render() {
     return (
       <div>
         { this.props.history.map((item) =>
-          <div key={item.timestamp} onClick={() => this.props.changePage(item.code)}>
-            <p>{ item.code }</p>
-            <p>{ item.name }</p>
-            <p>{ item.timestamp }</p>
-            <hr />
-          </div>
+          <ItemRow item={item} key={item.timestamp} onClick={() => this.props.changePage(item.code)}/>
         ) }
-        { this.props.history.length === 0 && this.props.recordHistory &&
-          <div>no history</div>
-        }
-        { !this.props.recordHistory &&
-          <div>not recording history</div>
+        { this.props.history.length === 0 &&
+            <Mascot value="No history"/>
         }
       </div>
     )
@@ -34,7 +29,10 @@ const mapStateToProps = ({ search, settings }) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      changePage: (code) => push('/items/' + code)
+      changePage: (code) => {
+        console.log('asd')
+        return push('/items/' + code)
+      }
     },
     dispatch
   )
