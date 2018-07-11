@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import { loadItem } from '../../modules/item'
 import NotFoundAdd from '../../components/not-found-add'
+import ItemSummary from '../../components/item-summary'
 
 class Item extends React.Component {
   componentDidMount() {
@@ -100,16 +101,7 @@ class Item extends React.Component {
       <div>
         { !this.props.item.id && <NotFoundAdd /> }
         { this.props.item.id && <div>
-          <div>
-            <div style={{width: '50%', float: 'left', textAlign: 'center', paddingBottom: '100px'}}>
-              <h1 style={{ marginBottom: '0px', fontSize: '3em' }}>{ this.computeLingurite(this.props.item) }</h1>
-              <p style={{ marginTop: '0px' }}>lingurite de zahar</p>
-            </div>
-            <div style={{width: '50%', float: 'left', textAlign: 'center', paddingBottom: '100px'}}>
-              <h1 style={{ marginBottom: '0px', fontSize: '3em' }}>{ this.findEUri(this.props.item) }</h1>
-              <p style={{ marginTop: '0px' }}>E-uri</p>
-            </div>
-          </div>
+          <ItemSummary nrLingurite={this.computeLingurite(this.props.item)} nrEUri={this.findEUri(this.props.item)}/>
           <div>
             <h3>Detalii</h3>
             <table>
