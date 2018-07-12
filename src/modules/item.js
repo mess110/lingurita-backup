@@ -1,6 +1,7 @@
 export const LOAD_ITEM = 'item/LOAD_ITEM'
 export const LOAD_ITEMS = 'item/LOAD_ITEMS'
 export const LOADING = 'item/LOADING'
+export const ITEM_ADDED = 'item/ITEM_ADDED'
 
 const initialState = {
   item: {},
@@ -34,6 +35,11 @@ export default (state = initialState, action) => {
         loading: true,
       }
 
+    case ITEM_ADDED:
+      return {
+        ...state,
+      }
+
     default:
       return state
   }
@@ -50,6 +56,14 @@ export const loadItem = (code) => {
         type: LOAD_ITEM,
         item: myJson[0] || { code: code },
       })
+    })
+  }
+}
+
+export const addItem = (item) => {
+  return dispatch => {
+    dispatch({
+      type: ITEM_ADDED
     })
   }
 }

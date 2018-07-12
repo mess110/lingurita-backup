@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import { action as toggleMenu } from 'redux-burger-menu';
 
 import About from '../about'
+import Add from '../add'
 import Browse from '../browse'
 import History from '../history'
 import Item from '../item'
@@ -30,6 +31,7 @@ class App extends React.Component {
             <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
               <Link onClick={ () => this.closeMenu() } to="/">Browse</Link>
               <Link onClick={ () => this.closeMenu() } to="/history">History</Link>
+              <Link onClick={ () => this.closeMenu() } to="/add">Add Item</Link>
               <Link onClick={ () => this.closeMenu() } to="/settings">Settings</Link>
               <Link onClick={ () => this.closeMenu() } to="/about-us">About</Link>
             </Menu>
@@ -41,6 +43,7 @@ class App extends React.Component {
               <Route exact path="/about-us" component={About} />
               <Route exact path="/history" component={History} />
               <Route exact path="/settings" component={Settings} />
+              <Route exact path="/add" component={Add} />
               <Route path="/items/:code" component={Item} />
               <Route component={NoMatch}/>
             </Switch>
