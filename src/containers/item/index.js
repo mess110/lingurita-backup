@@ -12,11 +12,11 @@ class Item extends React.Component {
     // oh wow. plz rewrite
     if (this.props.loaded) {
       if (this.props.match.params.code !== this.props.item.code) {
-        this.props.loadItem(this.props.match.params.code);
+        this.props.loadItem(this.props.match.params.code)
       }
     } else {
       if (!this.props.loading) {
-        this.props.loadItem(this.props.match.params.code);
+        this.props.loadItem(this.props.match.params.code)
       }
     }
   }

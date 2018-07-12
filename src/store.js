@@ -12,6 +12,7 @@ export const history = createHistory({
 })
 
 const initialState = load()
+initialState.router.location = {}
 const enhancers = []
 
 const middleware = [thunk, routerMiddleware(history), recordItemHistory, save()]
