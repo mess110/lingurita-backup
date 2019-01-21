@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "homepage": "https://mess110.github.io/lingurita",
+  "scripts": {
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "precommit": "pretty-quick --staged"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0",
+    "prettier": "1.13.7",
+    "react-scripts": "1.1.4"
+  },
+  "dependencies": {
+    "connected-react-router": "4.3.0",
+    "qrcode.react": "^0.8.0",
+    "react": "16.4.1",
+    "react-burger-menu": "^2.5.2",
+    "react-dom": "16.4.1",
+    "react-redux": "5.0.7",
+    "react-router": "4.3.1",
+    "react-router-dom": "4.3.1",
+    "redux": "4.0.0",
+    "redux-burger-menu": "^0.2.7",
+    "redux-localstorage-simple": "^2.1.1",
+    "redux-thunk": "2.3.0",
+    "sanitize.css": "6.0.0",
+    "serve": "9.2.0"
+  }
+}

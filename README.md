@@ -1,45 +1,20 @@
-# lingurita
+<p align="center"><a href="https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f"><img src="https://i.imgur.com/PATsTx2.png" title="View tutorial" alt="React, React Router, Redux and Redux Thunk" width="900"></a></p>
 
-## Roadmap
+* Tutorial: [Getting started with create-react-app, Redux, React Router & Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
+* [Demo](https://create-react-app-redux.now.sh) 🙌
 
-[ ] landing page
-  - search
-  - camera
-[ ] item page
-  - show name
-  - show spoons
-  - add item if not found
-[ ] add item page
-  - api call
+## Installation
 
-Code snippets
-
-```
-    <h3 style={{marginTop: '0px'}}>Mantra</h3>
-    <ul>
-      <li>People should know what they eat</li>
-      <li>Labels should be human readable</li>
-      <li>Knowledge should be shared</li>
-    </ul>
-    <h3>Lingurita community</h3>
-    <ul>
-      <li>How many teaspoons of sugar does your food contain?</li>
-      <li>How many additives?</li>
-    </ul>
-    <p>These are the questions the app answers.</p>
-    <p>Think of this as a community effort. If you can't find a product in the database, you can add it yourself. That way other users will be able to find it.</p>
-    <h3>Product database</h3>
-    <p>We have over <b>3000</b> items and growing.</p>
-    <p>The database is populated from crawled public data (<a href="http://www.infocons.ro/">infocons.ro</a>) and user submitted content.</p>
-    <p>No user information is stored. The history is stored only on the device and it is not sent to a server.</p>
-    <h3>Free Software</h3>
-    <p>This service is free for everybody. You can support it by donating BTC:</p>
-    <div style={{ textAlign: 'center' }}>
-    <QRCode value={ props.btcDonations }/>
-    <p>{ props.btcDonations }</p>
-    <p><a href="https://github.com/mess110/lingurita">source code</a></p>
-    </div>
-  btcDonations: '3HYZN775GFj7cxoJQSkjhH238DLfRVegjx'
+```bash
+git clone https://github.com/notrab/create-react-app-redux.git
+cd create-react-app-redux
+yarn
 ```
 
-'https://json.northpole.ro/write_only_storage.json?api_key=lingurita&secret=81cc6b0c14e5c4fa11f51f3bad1123f7&lingurita_type=item&code=' + code
+## Get started
+
+```bash
+yarn start
+```
+
+This boilerplate is built using [create-react-app](https://github.com/facebook/create-react-app) so you will want to read the User Guide for more goodies.
